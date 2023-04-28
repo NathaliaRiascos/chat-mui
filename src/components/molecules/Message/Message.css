@@ -1,0 +1,33 @@
+.container__messages {
+    display: flex;
+    align-items: end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.container__messages--left {
+    flex-direction: row-reverse;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 15px;
+  max-width: 243px;
+  width: fit-content;
+  text-align: start;
+  margin: 10px 0;
+  background: #f2f2f3;
+  box-shadow: 0px 30px 60px rgba(141, 139, 139, 0.2);
+  border-radius: 20px;
+}
+
+
+.messages .message:last-child {
+  border-radius: 20px 20px 20px 0px;
+  margin-bottom: 0;
+}
+
+.container__messages--left .message:last-child {
+    border-radius: 20px 20px 0px 20px;
+}

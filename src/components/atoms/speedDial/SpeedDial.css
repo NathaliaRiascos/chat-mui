@@ -1,0 +1,25 @@
+.circle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  background: #8186d5;
+  box-shadow: 0px 30px 60px rgba(141, 139, 139, 0.2);
+  border-radius: 50px 50px 0px 50px;
+  transition: all .2s ease-in-out;
+}
+
+.circle-active {
+    border-radius: 50px 0px 50px 50px;
+}
+
+.circle svg {
+    width: 40px;
+    height: 40px;
+    color: var(--color-white);
+}

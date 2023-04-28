@@ -1,0 +1,11 @@
+.container__chat {
+  position: relative;
+  height: 100%;
+  width: 450px;
+}
+
+.chat {
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 360px;
+}
