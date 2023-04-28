@@ -1,4 +1,23 @@
 :root {
+  --color-purple-light: #c6cbef;
+  --color-purple-medium: #8186d5;
+  --color-purple-dark: #494ca2;
+
+  --color-white-light: #e3e7f1;
+  --color-white: #ffffff;
+  --color-white-medium: #f2f2f3;
+}
+
+body {
+  background-color: var(--color-purple-light);
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -66,4 +85,5 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
+

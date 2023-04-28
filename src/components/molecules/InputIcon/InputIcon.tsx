@@ -1,19 +1,30 @@
-import React from 'react'
+import { Visibility } from "@mui/icons-material";
+import {
+  InputAdornment,
+  FormControl,
+  InputLabel,
+  FilledInput,
+  IconButton,
+} from "@mui/material";
 
-function InputIcon({ children}) {
+
+function InputIcon() {
   return (
-    <div>
-        <TextField
-          label="With normal TextField"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: '25ch' }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
-          }}
-        />
-        {/* { children } */}
-    </div>
-  )
+    <FormControl sx={{ m: 1, width: "25ch" }} variant="filled">
+      <InputLabel htmlFor="filled-adornment-password">Password</InputLabel>
+      <FilledInput
+        id="filled-adornment-password"
+        className="success-custom"
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton aria-label="toggle password visibility" edge="end">
+              <Visibility />
+            </IconButton>
+          </InputAdornment>
+        }
+      />
+    </FormControl>
+  );
 }
 
-export default InputIcon
+export default InputIcon;
