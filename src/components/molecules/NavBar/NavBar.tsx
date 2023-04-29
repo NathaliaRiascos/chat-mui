@@ -18,6 +18,8 @@ import { AccountCircle } from "@mui/icons-material";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
+
+const imgURL ="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -49,7 +51,7 @@ function NavBar() {
           </IconButton>
           <div style={{ display: "flex", alignItems: "center"}}>
               <IconButton onClick={handleMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={imgURL} />
               </IconButton>
 
             <Menu
@@ -67,8 +69,7 @@ function NavBar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
+              <MenuItem onClick={handleClose}>Logout</MenuItem>
             </Menu>
           </div>
         </Stack>
