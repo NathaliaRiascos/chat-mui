@@ -1,0 +1,33 @@
+.title {
+  width: 207px;
+  height: 132px;
+  left: calc(50% - 207px / 2 - 89.5px);
+  top: calc(50% - 132px / 2 - 252px);
+  text-align: start;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  margin: 0;
+  line-height: 44px;
+  color: #494ca2;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.MuiButtonBase-root {
+  background: var(--color-purple-medium);
+  box-shadow: 0px 30px 60px rgba(141, 139, 139, 0.2);
+  border-radius: 15px;
+}
+
+@media screen and (min-width: 700px) {
+    .content {
+      padding: 20px 30px;
+    }
+}
+

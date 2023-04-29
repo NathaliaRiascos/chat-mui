@@ -7,7 +7,6 @@ export class ChatService {
         user: 'admin',
         password: 'admin',
     }))
-
       return response.json();
     } catch (e) {}
   }

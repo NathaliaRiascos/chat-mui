@@ -1,37 +1,39 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import Stack from "@mui/material/Stack";
-import { AccountCircle } from "@mui/icons-material";
+import { useAppDispatch } from "../../../redux/hooks";
+import { logout } from "../../../redux/features";
+import { useNavigate } from "react-router-dom";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-
-const imgURL ="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+const imgURL =
+  "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80";
 function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+    dispatch(logout())
+    navigate('/login')
   };
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: 'var(--color-purple-medium)',
+        borderRadius: { sm: '55px 55px 0px 55px' }
+      }}
+    >
       <Toolbar>
         <Stack
           spacing={{ xs: 1, sm: 2 }}
@@ -49,10 +51,10 @@ function NavBar() {
           >
             <AdbIcon sx={{ display: { xs: "flex", md: "flex" }, mr: 1 }} />
           </IconButton>
-          <div style={{ display: "flex", alignItems: "center"}}>
-              <IconButton onClick={handleMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src={imgURL} />
-              </IconButton>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <IconButton onClick={handleMenu} sx={{ p: 0 }}>
+              <Avatar alt="Remy Sharp" src={imgURL} />
+            </IconButton>
 
             <Menu
               id="menu-appbar"

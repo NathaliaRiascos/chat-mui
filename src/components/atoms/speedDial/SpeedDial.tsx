@@ -3,7 +3,12 @@ import "./SpeedDial.css";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import CloseIcon from "@mui/icons-material/Close";
 
-export default function SpeedDial({ isOpen = false,  toggleOpen}) {
+interface Props {
+  isOpen: boolean;
+  toggleOpen: (isOpen: boolean) => void;
+}
+
+export default function SpeedDial({ isOpen = false,  toggleOpen}: Props) {
   return (
     <div
       className={`circle ${isOpen ? "circle-active" : ""}`}

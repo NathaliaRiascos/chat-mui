@@ -1,33 +1,53 @@
 import { useState, useEffect } from "react";
+import SendIcon from "@mui/icons-material/Send";
+
 import "./Dashboard.css";
-import { Card, Message, NavBar, SpeedDial } from "../../components";
+import { Card, InputIcon, Message, NavBar, SpeedDial } from "../../components";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getMessages } from "../../redux/features";
 
+import useDimensions from "../../hooks/useDimension";
+
 function Dashboard() {
+  const { isMobile } = useDimensions()
   const { messages } = useAppSelector((state) => state.chat);
-  const [isOpen, toggleOpen] = useState(false);
+  const [isOpen, toggleOpen] = useState(isMobile);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getMessages());
   }, []);
 
+  useEffect(() => {
+    toggleOpen(isMobile)
+  }, [isMobile]);
+
   return (
     <div className="container__chat">
       {!isOpen ? (
-        <h1>¡Inicia un chat! :)</h1>
+        <Card styles="card--transparent">
+          <div className="container_text">
+            <h1 className="text">¡Inicia un chat! :)</h1>
+          </div>
+        </Card>       
       ) : (
-        <Card styles="card--white-light">
+        <Card styles="dashboard">
           <NavBar />
           <div className="chat">
             {messages.map(({ sender, message }) => (
-              <Message message={message}
-              styles={sender == 'agent'? "container__messages--left" : ""}/>
+              <Message
+                key={message}
+                message={message}
+                styles={sender == "agent" ? "container__messages--left" : ""}
+              />
             ))}
-            {/* <Message />
-            <Message styles="container__messages--left" />
-            <Message /> */}
+          </div>
+          <div
+          className="input"
+          >
+            <InputIcon label="Send a message">
+              <SendIcon />
+            </InputIcon>
           </div>
         </Card>
       )}

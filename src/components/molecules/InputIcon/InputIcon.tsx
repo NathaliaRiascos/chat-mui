@@ -5,25 +5,23 @@ import {
   InputLabel,
   FilledInput,
   IconButton,
+  TextField,
 } from "@mui/material";
+import { Input }from "../../atoms";
 
-
-function InputIcon() {
+function InputIcon({ label, children }) {
   return (
-    <FormControl sx={{ m: 1, width: "25ch" }} variant="filled">
-      <InputLabel htmlFor="filled-adornment-password">Password</InputLabel>
-      <FilledInput
-        id="filled-adornment-password"
-        className="success-custom"
-        endAdornment={
-          <InputAdornment position="end">
-            <IconButton aria-label="toggle password visibility" edge="end">
-              <Visibility />
-            </IconButton>
-          </InputAdornment>
-        }
+      <Input
+        id="outlined-adornment-password"
+        InputProps={{
+          endAdornment: <InputAdornment position="end">
+            { children }
+          </InputAdornment>,
+        }}
+        fullWidth
+        label={label}
+
       />
-    </FormControl>
   );
 }
 
